@@ -1,0 +1,52 @@
+{% extends 'tools/base.html' %}
+{% load static %}
+
+{% block title %}
+	toolGecko - Collection of Online Tools & Apps
+{% endblock %}
+
+{% block scripts %}
+	
+{% endblock %}
+
+{% block content %}
+	<div class="bg-light border-top mb-5">
+		<div class="container-xxl">
+			<div class="breadcrum-div   pt-4 ">
+			
+				<nav class="float-end" aria-label="breadcrumb" >
+				  <ol class="breadcrumb m-0">
+				    <li class="breadcrumb-item"><a href="/">Home</a></li>
+				    
+				    <li class="breadcrumb-item active" aria-current="page">Text Tools</li>
+				  </ol>
+				</nav>
+			</div>
+		</div>
+		<div class="container-xxl py-5">
+			<div class="row flex-column-reverse flex-md-row">
+				<div class="col-md-8  py-4">
+					<h1 class="display-4 ">Text Tools<h1> 
+					<h2 class="display-6 "> Collection of online text tools & apps</h2>
+					
+					<p class="lead text-muted ">eg. Tools to count number of words, characters, sentences, paragraphs etc.</p>
+					
+				</div>
+				<div class="col-md-4 ">
+					<img class ="mx-auto d-block"  src="{% static 'tools/images/app-icons/text/text.svg'%}" style="max-width: 256px;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-xxl">
+
+		<!-- Image tools cards -->
+		{% include 'textapps/text-tool-list.html' %}
+		<!-- image tools card ends -->
+
+
+	</div>
+{% endblock %}
+
+

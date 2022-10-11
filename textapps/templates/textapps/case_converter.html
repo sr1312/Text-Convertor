@@ -1,0 +1,213 @@
+{% extends 'tools/base.html' %}
+{% load static %}
+
+{% block title %}
+	Word Counter - Count Character, Word, Sentence, Paragraph
+{% endblock %}
+
+{% block meta %}
+	<meta name="description" content="Count words, characters, sentences, paragraphs, etc online in your text online. It's free, just paste the text or upload the file.">
+{% endblock %}
+
+{% block bottom_scripts %}
+	<script src="{% static 'textapps/js/case-converter.js' %}"></script>
+	<script src="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js'%}"></script>
+	<link rel="stylesheet" href="{% static 'textapps/css/case-converter.css' %}" />
+	<link rel="stylesheet" href="{% static 'https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css'%}"/>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+{% endblock %}
+
+{% block content %}
+	<!-- full header includes breadcrumb, and titles  -->
+	<div class="container-fluid  bg-light pt-2 pb-3" style="background-color: #FBF8F1;">
+		<!-- breadcrumb -->
+		<div class="container-xxl breadcrum-div  pt-2 pb-3">
+			<nav class=" " aria-label="breadcrumb" >
+			  <ol class="breadcrumb m-0">
+			    <li class="breadcrumb-item sub-items"><a href="/" class="item">Home</a></li>
+			    <li class="breadcrumb-item sub-items"><a href="/text" class="item">Text Tools</a></li>
+			    <li class="breadcrumb-item active sub-items" aria-current="page">Case Converter</li>
+			  </ol>
+			</nav>
+		</div>
+		<!-- breadcrumb ends here -->
+		<!-- h1,h2, icon after breadcrumb  -->
+		<div class="container-xxl pt-5 pb-2">
+
+			<div class="row  pb-2">
+				<div class="col-auto">
+					<img class =""  src="{% static 'tools/images/app-icons/text/word-counter.svg'%}" style="width: 80px;">
+				</div>
+				<div class="col float-start">
+					<h1 class="display-6 ">Case Converter<h1>
+                 <h6 class="para">Convert text into lower case, UPPER CASE, Sentence case, aLtErNaTiVe CaSe & Capitalise letters.</h6>				
+				</div>
+
+			</div>
+		</div>
+		<!-- h1,h2, icon ends here -->
+	</div>
+	<!-- full header ends here -->
+
+	
+	<div class="container tool-div py-5">
+	<!-- tool area, you have to write code inside this div only-->	
+	<form name="uppercase">
+		<div class="row">
+			<textarea name="comment" placeholder="Enter or paste your code here" class="textarea" rows="10" cols="50" id="area">
+			</textarea>
+		</div>
+	</form>
+	<div class='row'>
+		<div class='col px-0'>
+			<button class="upperbtn btn mt-3 style-btn" onclick="upperCase()">UPPER CASE</button>
+			<button class="upperbtn btn mt-3 style-btn" onclick="convertToSentenceCase();return false;">sentence case</button>
+			<button class="upperbtn btn mt-3 style-btn" onclick="lowerCase()">lower case</button>
+			<button class="upperbtn btn mt-3 style-btn" onclick="titleCase()">Title Case</button>
+			<button class="upperbtn btn mt-3 style-btn" onclick="capitalized()">Capitalized Case</button>
+			<button class="upperbtn btn mt-3 style-btn" onclick="alternateCase()">aLtErNaTiVe CaSe</button>
+			<button class="upperbtn btn mt-3 style-btn copy" onclick="copyText()">Copy on clipboard</button>
+			<a class="upperbtn btn mt-3 style-button" id="link" download="Text.txt">Download Text</a>
+			<button class="upperbtn btn mt-3 style-btn" onclick="clearBox()">Clear</button>
+		</div>
+	</div>
+	<div class="bs-callout">
+	<div class="row">
+		<div class="col px-0">
+			<label>Character Count :</label>
+			<span id="word">0</span> &nbsp; Words &nbsp;|
+            <span id="char">0</span> &nbsp; Characters	&nbsp;	
+		</div>
+	</div>
+</div>
+		
+</div>
+	<!-- tool are ends -->		
+<div class="container-fluid">
+	<div class="container">
+		<div class="new-head">
+			<h2>How It Works ?</h2>
+		</div>
+		<div class="bs-callout">
+		<div class="row">
+			<div class="col">
+				  <div class="row"> 
+					<p class="text"><strong class="case-text">Case Converter online:</strong>&nbsp;This tool can be used to quickly convert your text between different cases.</p>
+					<p>See the examples of usage below.</p>
+				  </div>
+			</div>
+		</div>
+	</div>
+		
+  <!-- card -->
+  <div class="row mt-5 pt-4">
+	<h1 class="mb-3"><i class="fa fa-file-text-o"></i>
+		Examples</h1>
+	<div class="col">
+  <div class="card mb-3" style="max-width: 50rem;">
+	<div class="card-header">Sentence Case</div>
+	<div class="card-body">
+	  <p class="card-text mb-4">The sentence case converter will allow you to paste any text you’d like, and it will automatically transform it to a fully formed structured sentence.		
+		This is an example of sentence case.
+		
+		</p>
+	</div>
+  </div>
+  </div>
+  <div class="col">
+  <div class="card mb-3" style="max-width: 50rem;">
+	<div class="card-header">Lower Case</div>
+	<div class="card-body">
+	  <p class="card-text">If you are wondering how to uncapitalize text, this is exactly what the lower case text converter will allow you to do - it transforms all the letters in your text into lowercase letters. Simply copy the text that you need generating into lower case
+		<br>this is an example of lower case.
+	  </p>
+	</div>
+  </div>
+</div>
+</div>
+
+<div class="row">
+	<div class="col">
+  <div class="card mb-3" style="max-width: 50rem;">
+	<div class="card-header">Capitalized Case</div>
+	<div class="card-body">
+	  <p class="card-text">The capitalized case converter will automatically convert the starting letter of every word into an upper case and will leave the remaining letters as lower case ones.
+		Simply copy the content that you will like to generate into this format, then paste into the box and select the Capitalized Case tab.
+		<br>This Is An Example Of Capitalized Case.</p>
+	</div>
+  </div>
+</div>
+  <div class="col">
+  <div class="card mb-3" style="max-width: 50rem;">
+	<div class="card-header">Title Case</div>
+	<div class="card-body">
+	  <p class="card-text">The title case converter is perfect for those who are a bit unsure on how to title an upcoming essay. It essentially ensures the correct letters are capitalized within the context of a title. Words such as “an” will be left all in lower case and words that are important will be converted such as “Title”.
+		<br>This Is an Example of Title Case.</p>
+	</div>
+  </div>
+</div>
+</div>
+<div class="row">
+	<div class="col">
+		<div class="card mb-3" style="max-width: 50rem;">
+		  <div class="card-header">Small Text Generator</div>
+		  <div class="card-body">
+			<p class="card-text">Small Text Generator
+			  The small text generator simply takes regular sized text and converts it into small text (specifically “small caps” as well as “Superscript” text. Write out your normal text and see it get converted into the small text font.
+			  
+			  <br>Tʜɪꜱ ɪꜱ ᴀɴ ᴇxᴀᴍᴘʟᴇ ᴏꜰ ᴛɪɴʏ ᴛᴇxᴛ ᴄᴀꜱᴇ ꜱᴍᴀʟʟ ᴄᴀᴘꜱ
+			  <br>ᵗʰⁱˢ ⁱˢ ᵃⁿ ᵉˣᵃᵐᵖˡᵉ ᵒᶠ ᵗⁱⁿʸ ᵗᵉˣᵗ ᶜᵃˢᵉ ˢᵘᵖᵉʳˢᶜʳⁱᵖᵗ</p>
+		  </div>
+		</div>
+		</div>
+		<div class="col">
+			<div class="card mb-3" style="max-width: 50rem;">
+			  <div class="card-header">Upper Case</div>
+			  <div class="card-body">
+				<p class="card-text pb-4">The upper case transformer will take any text that you have and will generate all the letters into upper case ones. It will essentially make all lower case letters into CAPITALS (as well as keep upper case letters as upper case letters).
+				  <br>THIS IS AN EXAMPLE OF UPPER CASE.
+				</p>
+			  </div>
+			</div>
+		  </div>
+</div>
+<div class="row">
+	<div class="col">
+  <div class="card mb-3" style="max-width: 50rem;">
+	<div class="card-header">Wide Text Generator</div>
+	<div class="card-body">
+	  <p class="card-text">If you are looking to widen the look of your text, the widening text generator is great for this, otherwise known as the Aesthetic Font and text generator. Simply type your normal text and see it get wider and wider.
+
+		<br>Ｔｈｉｓ ｉｓ ａｎ ｅｘａｍｐｌｅ ｏｆ ｗｉｄｅ ａｅｓｔｈｅｔｉｃ ｔｅｓｔ。</p>
+	</div>
+  </div>
+</div>
+<div class="col">
+  <div class="card mb-3" style="max-width: 50rem;">
+	<div class="card-header">Strikethrough Text Generator</div>
+	<div class="card-body">
+	  <p class="card-text pb-4">If you want a quick way of crossing out your text, this is a great tool. Type out the normal text you want to be lined through and you will see it get automatically generated, ready for you to copy and paste.
+
+		<br>T̶h̶i̶s̶ ̶i̶s̶ ̶a̶n̶ ̶e̶x̶a̶m̶p̶l̶e̶ ̶o̶f̶ ̶s̶t̶r̶i̶k̶e̶t̶h̶r̶o̶u̶g̶h̶ ̶t̶e̶x̶t̶.̶</p>
+	</div>
+  </div>
+</div>
+<!-- <div class="col">
+	<div class="card border-Danger mb-3" style="max-width: 25rem;">
+	  <div class="card-header">Reverse Text Generator</div>
+	  <div class="card-body text-secondary">
+		<p class="card-text pb-5">If you want a fast and quick way of making your text go back to front, the reverse text generator is great. Write out your text like normal and then see it get flipped.
+		<br>.txet sdrawkcab fo ecnetnes elpmaxe na si sihT
+		</p>
+	  </div>
+	</div>
+</div> -->
+</div>
+	</div>
+</div>
+</div>
+	
+
+{% endblock %}
+

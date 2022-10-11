@@ -1,0 +1,82 @@
+{% extends 'tools/base.html' %}
+{% load static %}
+
+{% block title %}
+	Word Counter - Count Character, Word, Sentence, Paragraph
+{% endblock %}
+
+{% block meta %}
+	<meta name="description" content="Count words, characters, sentences, paragraphs, etc online in your text online. It's free, just paste the text or upload the file.">
+{% endblock %}
+
+{% block bottom_scripts %}
+	<script src="{% static 'textapps/js/widetext-generator.js' %}"></script>
+	<link rel="stylesheet" href="{% static 'textapps/css/widetext-generator.css' %}"/>
+
+{% endblock %}
+
+{% block content %}
+	<!-- full header includes breadcrumb, and titles  -->
+	<div class="container-fluid  bg-light pt-2 pb-3" style="background-color: #FBF8F1;">
+		<!-- breadcrumb -->
+		<div class="container-xxl breadcrum-div  pt-2 pb-3">
+			<nav class=" " aria-label="breadcrumb" >
+			  <ol class="breadcrumb m-0">
+			    <li class="breadcrumb-item sub-items"><a href="/" class="item">Home</a></li>
+			    <li class="breadcrumb-item sub-items"><a href="/text" class="item">Text Tools</a></li>
+			    <li class="breadcrumb-item active sub-items" aria-current="page">Wide Text Generator</li>
+			  </ol>
+			</nav>
+		</div>
+		<!-- breadcrumb ends here -->
+		<!-- h1,h2, icon after breadcrumb  -->
+		<div class="container-xxl pt-5 pb-2">
+
+			<div class="row  pb-2">
+				<div class="col-auto">
+					<img class =""  src="{% static 'tools/images/app-icons/text/word-counter.svg'%}" style="width: 80px;">
+				</div>
+				<div class="col float-start">
+					<h1 class="display-6 ">Wide Text Generator<h1>
+                 <h6 class="para">A simple to use online vaporwave text generator tool that widens and spaces out your text. It basically converts your normal text into a vaporwave font, you will see that it is also referred to as an aesthetic font. Essentially you will have your standard font widened via this wide text generator.
+
+                </h6>				
+				</div>
+
+			</div>
+		</div>
+		<!-- h1,h2, icon ends here -->
+	</div>
+	<!-- full header ends here -->
+ <!-- text generator start -->
+ <div class="container tool-div py-5">
+	<div class="bs-callout">
+		<div class="row">
+			<div class="col px-0">
+				<label>Character Count :</label>
+				<span id="word">0</span> &nbsp; Words &nbsp;|
+				<span id="char">0</span> &nbsp; Characters	&nbsp;	
+			</div>
+		</div>
+	</div>
+    <form name="uppercase">
+		<div class="row">
+			<textarea name="comment" class="textarea" rows="10" cols="50" placeholder="Enter or paste your code here" id="area">
+			</textarea>
+		</div>
+	</form>
+	<div class='row'>
+		<div class='col px-0'>
+			<button class="upperbtn btn mt-3 style-btn" onclick="wideText()">Convert Your Text</button>
+			<a class="upperbtn btn mt-3 style-button" id="link" download="Text.txt">Download Text</a>
+			<button class="upperbtn btn mt-3 style-btn copy" onclick="copyText()">Copy on clipboard</button>
+		</div>
+	</div>
+	
+</div>
+	
+	
+	
+
+{% endblock %}
+

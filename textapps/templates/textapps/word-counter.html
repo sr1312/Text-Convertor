@@ -1,0 +1,69 @@
+{% extends 'tools/base.html' %}
+{% load static %}
+
+{% block title %}
+	Word Counter - Count Character, Word, Sentence, Paragraph
+{% endblock %}
+
+{% block meta %}
+	<meta name="description" content="Count words, characters, sentences, paragraphs, etc online in your text online. It's free, just paste the text or upload the file.">
+{% endblock %}
+
+{% block bottom_scripts %}
+	<script src="{% static 'textapps/js/word-counter.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+	<!-- full header includes breadcrumb, and titles  -->
+	<div class="container-fluid  bg-light pt-2 pb-3" style="background-color: #FBF8F1;">
+		<!-- breadcrumb -->
+		<div class="container-xxl breadcrum-div  pt-2 pb-3">
+			<nav class=" " aria-label="breadcrumb" >
+			  <ol class="breadcrumb m-0">
+			    <li class="breadcrumb-item"><a href="/">Home</a></li>
+			    <li class="breadcrumb-item"><a href="/text">Text Tools</a></li>
+			    <li class="breadcrumb-item active" aria-current="page">Word Counter</li>
+			  </ol>
+			</nav>
+		</div>
+		<!-- breadcrumb ends here -->
+		<!-- h1,h2, icon after breadcrumb  -->
+		<div class="container-xxl pt-5 pb-2">
+
+			<div class="row  pb-2">
+				<div class="col-auto">
+					<img class =""  src="{% static 'tools/images/app-icons/text/word-counter.svg'%}" style="width: 80px;">
+				</div>
+				<div class="col float-start">
+					<h1 class="display-6 ">Word Counter<h1> 
+					<h2 class="lead text-muted"> Count number of words, characters, paragraphs, sentences in your text.</h2>
+				</div>
+			</div>
+		</div>
+		<!-- h1,h2, icon ends here -->
+	</div>
+	<!-- full header ends here -->
+
+	
+	<div class="container-xxl tool-div word-counter py-5">
+	<!-- tool area, you have to write code inside this div only-->	
+		
+		<div class="tool shadow">
+			<div class="row  m-0 p-1 bg-light ">
+				<div class="col fs-5 "><span id="words">0</span><br> Words</div>
+				<div class="col fs-5 "><span id="sentences">0</span><br> Sentences</div>
+				<div class="col fs-5 "><span id="paragraphs">0</span><br> Paragraphs</div>
+				<div class="col fs-5 "><span id="characters">0</span><br> Characters</div>
+			</div>
+			<div class="mb-3">
+			  <!-- <div class="bg-light"> 0 Words</div> -->
+			  <textarea oninput="countWords()" class="form-control rounded-0 border-0" id="wordTextArea" rows="10"></textarea>
+			  <label for="exampleFormControlTextarea1" class="form-label float-start text-muted mt-2">Paste text above</label>
+			</div>	
+		</div>
+	<!-- tool are ends -->		
+	</div>
+	
+
+{% endblock %}
+

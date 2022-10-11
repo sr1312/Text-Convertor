@@ -1,0 +1,81 @@
+{% extends 'tools/base.html' %}
+{% load static %}
+
+{% block title %}
+	toolGecko - Collection of Online Tools & Apps
+{% endblock %}
+
+{% block meta %}
+<meta name="description" content="Collection of of online apps and tools. eg. tools to manipulate PDFs, images, SEO, text, social Media tools and mamy more.  ">
+
+{% endblock %}
+
+{% block scripts %}
+	
+{% endblock %}
+
+{% block content %}
+	<div class="bg-light border-top mb-5">
+		<div class="container-xxl py-5">
+			<div class="row flex-column-reverse flex-md-row">
+				<div class="col-md-8  py-4">
+					<h1 class="display-4 ">ToolGecko<h1> 
+					<h2 class="display-6 "> Collection of online apps & tools</h2>
+					
+					<p class="lead text-muted ">eg. PDF tools, Image tools, Website Management tools, SEO tools, Social Media tools and more.</p>
+					
+				</div>
+				<div class="col-md-4 ">
+					<img class ="mx-auto d-block"  src="{% static 'tools/images/app.png'%}" style="max-width: 256px;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-xxl">
+		<!-- PDF tools cards -->
+		{% include 'tools/pdf-tools-snippet.html' %}
+		<!-- pdf tools card ends -->
+
+		<!-- text tools cards -->
+		{% include 'tools/text-tools-snippet.html' %}
+		<!-- text tools card ends -->
+		
+		<!-- Image tools cards -->
+		{% include 'tools/image-tools-snippet.html' %}
+		<!-- image tools card ends -->
+
+		<!-- network tools cards -->
+		{% include 'tools/net-tools-snippet.html' %}
+
+
+		<!-- network tools card ends -->
+
+
+		<!-- social media tools cards -->
+			{% include 'tools/sm-tools-snippet.html' %}
+		<!-- social media tools card ends -->
+
+		<!-- random generator tools cards -->
+			{% include 'tools/randomgen-tools-snippet.html' %}
+		<!-- random generator tools card ends -->
+
+		<!-- website management tools cards -->
+			{% include 'tools/webmanage-tools-snippet.html' %}
+		<!-- website management tools card ends -->
+
+		<!-- seo tools cards -->
+
+		<!-- seo tools card ends -->
+
+
+
+
+
+
+
+		<!-- miscellaneous generator tools cards -->
+		
+		<!-- miscellaneous generator tools card ends -->
+	</div>
+{% endblock %}

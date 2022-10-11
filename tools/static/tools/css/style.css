@@ -1,0 +1,303 @@
+body{
+	font-family: 'Lato', sans-serif;
+	/*font-family: 'Roboto Mono', monospace;*/
+}
+.word-counter{
+	text-align: center;
+}
+
+.tool-header{
+	margin-top: 20px;
+}
+/*.tool-header h1{
+	font-weight: 300;
+}
+.tool-header h2{
+	font-weight: 300;
+}*/
+
+
+#resultImgDiv{
+	background-position: 0px 0px, 10px 10px;
+    background-size: 20px 20px;
+    background-image: linear-gradient(45deg, #eee 25%, transparent 25%, transparent 75%, #eee 75%, #eee 100%),linear-gradient(45deg, #eee 25%, white 25%, white 75%, #eee 75%, #eee 100%);
+}
+
+
+/*-----------content----------*/
+/*-------for tool home page------*/
+.tool-card{
+	padding-left: 0px !important;
+	padding-right: 0px !important;
+	transition: 0.5s;
+}
+.tool-card:hover{
+	background-color: #f6f6f8 !important;
+
+}
+.tool-card:hover img{
+	width: 54px !important;
+	height: 54px !important;
+}
+.tool-card:hover p{
+	color: #383e45;
+}
+.tool-card:hover h5{
+	color: #383e45;
+}
+.card-tool-icon-div{
+	
+	width:204px !important; 
+	height: 204px !important;
+	display: table-cell;
+	text-align: center;
+	vertical-align: middle;
+	/*background-color: #999;*/
+}
+.card-tool-icon-div * {
+	vertical-align: middle;
+}
+.card-tool-icon{
+	width: 48px !important;
+	height: 48px !important;
+	/*top: 50% !important;*/
+	/*position: absolute !important;*/
+	/*margin-bottom: 20px !important;*/
+}
+
+p.tool-card-text{
+	font-weight: 300 !important;
+	color: #6c757d;
+	transition: 0.5s;
+}
+.wraptocenter {
+	margin-top: 20px;
+	margin-left: 0px;
+  display: table-cell;
+  text-align: center;
+  vertical-align: middle;
+  width: 94px;
+  height: 84px;
+  padding-top: 20px;
+  /*background-color: #999;*/
+}
+.wraptocenter * {
+  vertical-align: middle;
+}
+.icon-card-body{
+	height: 94px !important;	
+}
+a.tool-link{
+	text-decoration: none !important;
+	color: #4a5057 !important;
+	height: 100%;
+}
+a.tool-link:hover h5{
+	color: #383e45 !important; 
+}
+
+
+
+
+
+/* split pdf css */
+/* responsive border */
+
+@media(max-width:767px){
+
+.custom-border-hide-sm {
+	
+	border: hidden !important;
+	
+ }
+}
+
+/* check icon split pdf */
+
+.fas {
+  padding: .2rem .3rem;
+  position: absolute;
+  /* You may need to change top and right. They depend on padding/widht of .badge */
+  top: -10px;
+  right: -10px;
+  /*background: green;*/
+  /*border-radius: 50%;*/
+}
+/* end  */
+
+
+
+/*split button container, button stick at bottom*/
+#splitOptions{
+	position: relative;
+}
+.tg-split-btn-container{
+	position: absolute;
+	bottom: 0;
+}
+
+
+.tg-w-22{
+	width: 22rem;
+}
+
+.tg-w-9{
+	width: 9rem;
+}
+
+
+.tg-w-11{
+	width: 11rem;
+}
+.tg-dotted-border{
+	border:  1px dashed #626870;
+}
+
+.tg-three-dot-div{
+	width: 2rem; 
+	min-height: 13rem;
+}
+
+.tg-vertical-center{
+	position:absolute; 
+	bottom:50%
+}
+
+
+/*test dragable */
+
+/*merge pdf*/
+.box {
+  
+  cursor: move;
+}
+
+.box.over {
+  border: 1px dotted grey;
+  background: rgba(255, 255, 255, .8);
+  color: rgba(0, 0, 0, .8);
+}
+
+.opacity-0{
+	opacity: 0;
+}
+.source{
+	opacity: 0.1;
+	border:  3px dotted red;
+}
+
+.merge-card:hover{
+	background: #fff !important;
+	transition: .5s linear;
+}
+
+.btn-div{
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.add-btn-group{
+		position: fixed;
+		top: 0;
+		right: 0;
+		z-index: 1;
+		width:100px; 
+}
+.btn-div{
+	display: none;
+}
+
+.merge-card:hover .btn-div, .merge-card:active .btn-div{
+	display: block;
+}
+
+@media (hover: hover) {
+  .merge-card:hover .btn-div,{
+		display: block;
+	}
+}
+
+@media (hover: none) {
+   .merge-card .btn-div{
+		display: block;
+	}
+}
+
+
+.custom-tooltip {
+  --bs-tooltip-bg: var(--bs-secondary);
+}
+@media only screen and (max-width: 768px) {
+  /* For mobile: */
+  canvas{
+  	max-width: 7rem;
+  	max-height: 10rem;
+  }	
+
+  .merge-card{
+  	width: 11rem;
+  	height: 16rem;	
+  }
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  canvas{
+  	max-width: 9rem;
+  	max-height: 13rem;
+  }	
+
+  .merge-card{
+  	width: 13rem;
+  	height: 19rem;	
+  }
+}
+
+
+
+
+
+
+/*fab container*/
+#wrapper {
+  overflow-x: hidden;
+}
+
+#sidebar-wrapper {
+  min-height: 100vh;
+  margin-left: -15rem;
+  transition: margin 0.25s ease-out;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}
+
+body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+  margin-left: 0;
+}
+
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+  }
+
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+
+  body.sb-sidenav-toggled #wrapper #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
